@@ -5,6 +5,7 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import champions1997 from "../../../assets/1997.png";
+import PisoWelcome from "../../../assets/PisoWelcome.png";
 import oscarMoglia from "../../../assets/Oscar Moglia.jpeg";
 import fefoRuiz from "../../../assets/Fefo Ruiz.jpeg";
 import estebanBatista from "../../../assets/Esteban Batista.png";
@@ -116,7 +117,7 @@ export default function HistoryPage() {
               <p className="text-xs font-bold uppercase tracking-[.25em] text-[var(--welcome-red)]">El origen</p>
               <h2 className="display mt-5 text-[clamp(3rem,6vw,6rem)] font-bold leading-[.9] tracking-[-.08em]">El garaje de los sueños.</h2>
             </div>
-            <div className="max-w-2xl space-y-6 text-base leading-8 text-black/70 sm:text-lg">
+            <div className="max-w-2xl space-y-6 text-base leading-8 text-[#111111] sm:text-lg">
               <p>El 13 de octubre de 1926, un grupo de jóvenes del entorno de Tristán Narvaja, Durazno e Isla de Flores se reunió en un garaje de Durazno 1882, casi Eduardo Acevedo. El local no tenía luz eléctrica: unas velas alumbraron la reunión en la que nació Welcome.</p>
               <p>La iniciativa de Edison García Maggi y Hebert Mendoza buscaba crear un espacio deportivo y social para el barrio. García Maggi sería el primer presidente, y el nombre propuesto por Eduardo Mendoza Galli fue aceptado por todos.</p>
               <p>Desde aquel comienzo, la historia del club quedó unida a la de Palermo y Parque Rodó: una comunidad que construyó sus canchas, acompañó sus equipos y sostuvo a la institución a lo largo de las décadas.</p>
@@ -124,16 +125,18 @@ export default function HistoryPage() {
           </div>
         </section>
 
-        <section className="bg-white px-6 py-24 lg:px-10 lg:py-32" aria-labelledby="primeros-pasos">
-          <div className="mx-auto max-w-7xl">
+        <section className="relative overflow-hidden bg-white px-6 py-24 lg:px-10 lg:py-32" aria-labelledby="primeros-pasos">
+          <div className="absolute inset-0"><Image src={PisoWelcome} alt="Piso de Welcome" fill className="object-cover object-center opacity-60" /></div>
+          <div className="absolute inset-0 bg-white/55" />
+          <div className="relative mx-auto max-w-7xl">
             <p className="text-xs font-bold uppercase tracking-[.25em] text-[var(--welcome-red)]">Los primeros pasos</p>
             <h2 id="primeros-pasos" className="display mt-5 max-w-4xl text-[clamp(2.8rem,5vw,5.5rem)] font-bold leading-[.92] tracking-[-.08em]">De una idea a una institución.</h2>
             <ol className="mt-14 grid border-t border-black/15 md:grid-cols-2 xl:grid-cols-4">
               {beginnings.map((item) => (
                 <li key={item.year} className="border-b border-black/15 py-8 md:px-6 md:first:pl-0 xl:border-r xl:last:border-r-0">
                   <p className="display text-5xl font-bold tracking-[-.08em] text-[var(--welcome-red)]">{item.year}</p>
-                  <h3 className="mt-6 text-xl font-bold tracking-tight">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-black/60">{item.text}</p>
+                  <h3 className="mt-6 text-xl font-bold tracking-tight text-black">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-black/90">{item.text}</p>
                 </li>
               ))}
             </ol>
