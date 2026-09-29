@@ -1,8 +1,8 @@
 export const navItems = [
-  { label: "Básquet", href: "#basquet" },
-  { label: "Historia", href: "#historia" },
-  { label: "Socios", href: "#socios" },
-  { label: "Noticias", href: "#noticias" },
+  { label: "Básquet", href: "/#basquet" },
+  { label: "Historia", href: "/historia" },
+  { label: "Socios", href: "/#socios" },
+  { label: "Noticias", href: "/#noticias" },
   { label: "El club", href: "/club" },
 ];
 
@@ -16,10 +16,4 @@ export const newsItems = [
   { category: "Categoría", date: "Fecha pendiente", title: "Título de noticia pendiente de cargar." },
   { category: "Categoría", date: "Fecha pendiente", title: "La actualidad de Welcome, en un solo lugar." },
   { category: "Categoría", date: "Fecha pendiente", title: "Historias y novedades del club." },
-];
-
-export const timeline = [
-  { year: "AÑO", title: "Hito pendiente", text: "Descripción histórica a completar con información oficial." },
-  { year: "AÑO", title: "Hito pendiente", text: "Descripción histórica a completar con información oficial." },
-  { year: "AÑO", title: "Hito pendiente", text: "Descripción histórica a completar con información oficial." },
 ];
