@@ -7,7 +7,7 @@ import Link from "next/link";
 import { basketballGroups, newsItems } from "@/data/content";
 import { HistoryCarousel } from "@/components/home/history-carousel";
 import { MediaPlaceholder } from "@/components/ui/placeholder";
-import PisoWelcome from "../../../assets/PisoWelcome.png";
+import crecerJuntos from "../../../assets/CrecerJuntos.jpeg";
 
 const reveal: Variants = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: .7, ease: "easeOut" } } };
 
@@ -20,13 +20,58 @@ export function HomePage() { return <main>
 
   <section className="bg-[var(--welcome-red)] px-6 py-24 text-white lg:px-10 lg:py-36"><motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: .35 }} variants={reveal} className="mx-auto max-w-7xl"><p className="mb-8 text-xs font-bold uppercase tracking-[.25em] text-white/65">Identidad</p><h2 className="display max-w-5xl text-[clamp(2.8rem,6vw,7rem)] font-bold leading-[.9] tracking-[-.08em]">No somos solamente un club. Somos generaciones jugando la misma camiseta.</h2></motion.div></section>
 
-  <section id="basquet" className="px-6 py-24 lg:px-10 lg:py-36"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="El deporte" title="El básquet es Welcome." /><div className="mt-14 grid gap-5 md:grid-cols-3">{basketballGroups.map((group, index) => <motion.a initial="hidden" whileInView="visible" viewport={{ once: true, amount: .2 }} variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: .7, ease: "easeOut", delay: index * .1 } } }} key={group.title} href={group.href} className="group relative min-h-[30rem] overflow-hidden bg-[var(--welcome-black)] text-white"><MediaPlaceholder className="absolute inset-0 min-h-0 opacity-55 transition-transform duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" /><div className="relative flex h-full flex-col justify-end p-7"><span className="mb-auto text-xs font-bold text-white/50">0{index + 1}</span><h3 className="display text-4xl font-bold tracking-[-.06em]">{group.title}</h3><p className="mt-3 max-w-xs text-sm leading-6 text-white/65">{group.text}</p><span className="mt-6 flex items-center gap-2 text-sm font-bold text-[var(--welcome-red-light)]">Conocé más <ChevronRight size={17} className="transition-transform group-hover:translate-x-1" /></span></div></motion.a>)}</div></div></section>
+  <section id="basquet" className="px-6 py-24 lg:px-10 lg:py-36">
+    <div className="mx-auto max-w-7xl">
+      <SectionHeading eyebrow="El deporte" title="El básquet es Welcome." />
+      <div className="mt-14 grid gap-5 md:grid-cols-3">
+        {basketballGroups.map((group, index) => (
+          <motion.a
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: .2 }}
+            variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: .7, ease: "easeOut", delay: index * .1 } } }}
+            key={group.title}
+            href={group.href}
+            className="group flex h-full flex-col overflow-hidden bg-[var(--welcome-black)] text-white"
+          >
+            <div className="relative aspect-[1.6] overflow-hidden">
+              <Image
+                src={group.image}
+                alt={group.imageAlt}
+                fill
+                sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1279px) 33vw, 400px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                style={{ objectPosition: group.imagePosition }}
+              />
+              <span className="absolute left-5 top-5 bg-black/65 px-3 py-2 text-xs font-bold tracking-[.15em] text-white">0{index + 1}</span>
+            </div>
+            <div className="flex flex-1 flex-col p-7">
+              <h3 className="display text-4xl font-bold tracking-[-.06em] text-white">{group.title}</h3>
+              <p className="mt-3 max-w-xs text-sm leading-6 text-white/65">{group.text}</p>
+              <span className="mt-auto flex items-center gap-2 pt-6 text-sm font-bold text-[var(--welcome-red-light)]">Conocé más <ChevronRight size={17} className="transition-transform group-hover:translate-x-1" /></span>
+            </div>
+          </motion.a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <section id="socios" className="bg-[var(--welcome-black)] px-6 py-24 text-white lg:px-10 lg:py-36"><div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-end"><div><SectionHeading dark eyebrow="Pertenencia" title="Hacete parte de Welcome." /><p className="mt-8 max-w-md leading-7 text-white/60">La información sobre modalidades, beneficios y contacto se agregará cuando esté confirmada.</p><a href="#contacto" className="mt-8 inline-flex items-center gap-3 rounded-full bg-[var(--welcome-red)] px-6 py-4 text-sm font-bold">Hacete socio <ArrowUpRight size={17} /></a></div><div className="grid gap-7 border-t border-white/15 pt-7">{["Contactanos", "Elegí cómo sumarte", "Viví Welcome"].map((step, index) => <div key={step} className="flex gap-5 border-b border-white/15 pb-7"><span className="text-sm text-[var(--welcome-red-light)]">0{index + 1}</span><div><h3 className="text-xl font-bold">{step}</h3><p className="mt-2 text-sm text-white/45">Detalle pendiente de completar.</p></div></div>)}</div></div></section>
 
   <section id="historia" className="py-24 lg:py-36"><div className="mx-auto max-w-7xl px-6 lg:px-10"><SectionHeading eyebrow="Legado" title={<>Una camiseta.<br /><span className="text-[var(--welcome-red)]">Generaciones de historia.</span></>} /><p className="mt-7 max-w-xl text-sm leading-7 text-black/55 sm:text-base">Nueve equipos campeones, nueve postales de una historia que sigue jugando.</p></div><HistoryCarousel /><div className="mx-auto max-w-7xl px-6 lg:px-10"><Link href="/historia" className="mt-10 inline-flex items-center gap-2 text-sm font-bold underline decoration-[var(--welcome-red)] decoration-2 underline-offset-8">Conocé nuestra historia <ArrowUpRight size={16} /></Link></div></section>
 
-  <section className="grid bg-[var(--welcome-red)] text-white lg:grid-cols-2"><MediaPlaceholder className="min-h-[28rem] opacity-25" /><div className="flex flex-col justify-center px-6 py-20 lg:px-16"><p className="text-xs font-bold uppercase tracking-[.25em] text-white/65">Formativas</p><h2 className="display mt-5 text-5xl font-bold leading-[.9] tracking-[-.08em] lg:text-7xl">Crecer también es jugar.</h2><p className="mt-7 max-w-sm leading-7 text-white/75">Contenido sobre edades, actividades y propuestas pendiente de completar.</p><Link href="/basquet/formativas" className="mt-8 inline-flex items-center gap-2 text-sm font-bold underline underline-offset-8">Conocé las formativas <ArrowUpRight size={16} /></Link></div></section>
+  <section className="grid bg-[var(--welcome-red)] text-white lg:grid-cols-2">
+    <div className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:min-h-[36rem]">
+      <Image
+        src={crecerJuntos}
+        alt="Grupo de formativas de Welcome reunido en la cancha"
+        fill
+        sizes="(max-width: 1023px) 100vw, 50vw"
+        className="object-cover object-center"
+      />
+    </div>
+    <div className="flex flex-col justify-center px-6 py-20 lg:px-16"><p className="text-xs font-bold uppercase tracking-[.25em] text-white/65">Formativas</p><h2 className="display mt-5 text-5xl font-bold leading-[.9] tracking-[-.08em] lg:text-7xl">Crecer también es jugar.</h2><p className="mt-7 max-w-sm leading-7 text-white/75">Contenido sobre edades, actividades y propuestas pendiente de completar.</p><Link href="/basquet/formativas" className="mt-8 inline-flex items-center gap-2 text-sm font-bold underline underline-offset-8">Conocé las formativas <ArrowUpRight size={16} /></Link></div>
+  </section>
 
   <section id="noticias" className="px-6 py-24 lg:px-10 lg:py-36"><div className="mx-auto max-w-7xl"><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><SectionHeading eyebrow="Actualidad" title="Noticias." /><Link href="/noticias" className="inline-flex items-center gap-2 text-sm font-bold">Ver todas <ArrowUpRight size={16} /></Link></div><div className="mt-14 grid gap-8 md:grid-cols-3">{newsItems.map((item) => <article key={item.title}><MediaPlaceholder className="aspect-[4/3] min-h-0" /><p className="mt-5 text-xs font-bold uppercase tracking-[.16em] text-[var(--welcome-red)]">{item.category} · {item.date}</p><h3 className="display mt-3 text-2xl font-bold leading-tight tracking-[-.05em]">{item.title}</h3></article>)}</div></div></section>
 

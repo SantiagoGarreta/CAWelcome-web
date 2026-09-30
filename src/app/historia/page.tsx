@@ -6,6 +6,8 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import champions1997 from "../../../assets/1997.png";
 import PisoWelcome from "../../../assets/PisoWelcome.png";
+import hinchadaBandera from "../../../assets/LaBandaEsElAguanteBandera.jpeg";
+import hinchadaTribuna from "../../../assets/LBEELLarreborges.jpeg";
 import oscarMoglia from "../../../assets/Oscar Moglia.jpeg";
 import fefoRuiz from "../../../assets/Fefo Ruiz.jpeg";
 import estebanBatista from "../../../assets/Esteban Batista.png";
@@ -180,6 +182,77 @@ export default function HistoryPage() {
                 sizes="(max-width: 1023px) calc(100vw - 48px), 600px"
                 className="mt-9 h-auto w-full border border-white/15"
               />
+            </div>
+          </div>
+        </section>
+
+        <section id="hinchada" className="relative isolate scroll-mt-20 overflow-hidden bg-[#110b0d] px-6 py-24 text-white lg:px-10 lg:py-28" aria-labelledby="hinchada-heading">
+          <video
+            className="pointer-events-none absolute inset-0 -z-20 h-full w-full scale-[1.04] object-cover object-center opacity-75 blur-[2px]"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            tabIndex={-1}
+          >
+            <source src="/media/ascenso-loop.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)" />
+          </video>
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-[#110b0d]/95 via-[#110b0d]/70 to-[#110b0d]/35" />
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-[#110b0d] via-transparent to-[#110b0d]/40" />
+
+          <div className="relative mx-auto grid max-w-7xl gap-14 lg:min-h-[650px] lg:grid-cols-[.95fr_1.05fr] lg:items-center lg:gap-10">
+            <div className="relative z-10">
+              <p className="flex items-center gap-4 text-xs font-bold uppercase tracking-[.25em] text-[var(--welcome-red-light)]">
+                <span className="h-px w-9 bg-[var(--welcome-red-light)]" aria-hidden="true" />
+                La fuerza de la W
+              </p>
+              <h2 id="hinchada-heading" className="display mt-8 text-[clamp(3.2rem,10vw,6.5rem)] font-bold leading-[.87] tracking-[-.08em]">
+                Su<br />hinchada.
+              </h2>
+              <p className="mt-9 max-w-md border-l-2 border-[var(--welcome-red-light)] pl-5 text-base leading-8 text-white/80 sm:text-lg">
+                " Juntos pasamos muy duros momentos, 
+                <br></br>
+                Cuando descendimos, más grande se hizo el sentimiento.
+                <br></br>
+                A los jugadores, les pido que dejen la vida.
+                <br></br>
+                Cuando yo me muera, te voy a alentar desde arriba. "
+                <br></br><br></br>
+                - La Banda es el Aguante. 
+              </p>
+            </div>
+
+            <div className="relative z-10 mx-auto w-full max-w-[620px] lg:py-10">
+              <figure className="ml-auto w-[88%] border border-white/20 bg-[#1c1517] p-2 shadow-[0_25px_75px_rgba(0,0,0,.45)] sm:w-[80%] lg:w-[86%]">
+                <div className="relative aspect-[1.44] overflow-hidden">
+                  <Image
+                    src={hinchadaBandera}
+                    alt="Hinchas de Welcome junto a la bandera La Banda Es El Aguante"
+                    fill
+                    sizes="(max-width: 639px) 78vw, (max-width: 1023px) 480px, 520px"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="flex items-center justify-between gap-3 px-1 pb-1 pt-3 text-[10px] font-bold uppercase tracking-[.2em] text-white/65">
+                  <span>01 / La banda es el aguante</span><span>Welcome</span>
+                </figcaption>
+              </figure>
+              <figure className="relative -mt-8 w-[70%] border border-white/20 bg-[#1c1517] p-2 shadow-[0_25px_75px_rgba(0,0,0,.5)] sm:-mt-14 sm:w-[62%] lg:-mt-16 lg:w-[68%]">
+                <div className="relative aspect-[1.47] overflow-hidden">
+                  <Image
+                    src={hinchadaTribuna}
+                    alt="La hinchada de Welcome alentando desde la tribuna"
+                    fill
+                    sizes="(max-width: 639px) 62vw, (max-width: 1023px) 370px, 420px"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="flex items-center justify-between gap-3 px-1 pb-1 pt-3 text-[10px] font-bold uppercase tracking-[.2em] text-white/65">
+                  <span>02 / En las tribunas</span><span>La W</span>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
