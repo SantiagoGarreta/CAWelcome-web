@@ -212,13 +212,13 @@ export default function HistoryPage() {
                 Su<br />hinchada.
               </h2>
               <p className="mt-9 max-w-md border-l-2 border-[var(--welcome-red-light)] pl-5 text-base leading-8 text-white/80 sm:text-lg">
-                " Juntos pasamos muy duros momentos, 
+                &ldquo;Juntos pasamos muy duros momentos,
                 <br></br>
                 Cuando descendimos, más grande se hizo el sentimiento.
                 <br></br>
                 A los jugadores, les pido que dejen la vida.
                 <br></br>
-                Cuando yo me muera, te voy a alentar desde arriba. "
+                Cuando yo me muera, te voy a alentar desde arriba.&rdquo;
                 <br></br><br></br>
                 - La Banda es el Aguante. 
               </p>
